@@ -18,10 +18,12 @@ function JobList() {
         let jobs = await JoblyApi.getJobs(title);
         setJobs(jobs);
     }
-
+    // if no jobs are loaded in display loading spinner
     if (!jobs) return <LoadingSpinner />;
 
     return(
+        // Renders search component and passes in the searchFor prop
+        //if jobs.length is truthy, the JobCardList component is rendered.  If falsy, displays no results found message
         <div>
             <Search searchFor={search}/>
             {jobs.length
