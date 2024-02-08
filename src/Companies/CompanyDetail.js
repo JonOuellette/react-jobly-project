@@ -9,12 +9,12 @@ import LoadingSpinner from "../LoadingSpinner";
  */
 
 function CompanyDetail() {
-    
-    const {handle} = useParams(); //extracts teh handle parameter from teh url 
+
+    const { handle } = useParams(); //extracts teh handle parameter from teh url 
     const [company, setCompany] = useState(null);
 
     //fetch company details when the component mounts or the handle changes
-    useEffect(function getCompanyandJobs(){
+    useEffect(function getCompanyandJobs() {
         async function getCompany() {
             //fetch company details using the API and handle
             setCompany(await JoblyApi.getCompany(handle));
@@ -25,12 +25,12 @@ function CompanyDetail() {
 
     // shows the loading spinner if company data has not loaded yet
     if (!company) return <LoadingSpinner />;
-    
+
     return (
-        <div>
+        <div className="CompanyDetail col-md-8 offset-md-2">
             <h4>{company.name}</h4>
             <p>{company.description}</p>
-            <JobCardList  />
+            <JobCardList jobs={company.jobs} />
 
         </div>
     )

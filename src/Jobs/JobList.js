@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
-
+import JobCardList from "./JobCardList";
+import SearchForm from "../SearchForm"
 import JoblyApi from "../api/api";
 import LoadingSpinner from "../LoadingSpinner";
 
@@ -24,8 +25,8 @@ function JobList() {
     return(
         // Renders search component and passes in the searchFor prop
         //if jobs.length is truthy, the JobCardList component is rendered.  If falsy, displays no results found message
-        <div>
-            <Search searchFor={search}/>
+        <div className="JobList col-md-8 offset-md-2">
+            <SearchForm searchFor={search}/>
             {jobs.length
             ? <JobCardList jobs={jobs} />
             : <p className="lead">Sorry, no results were found!</p>

@@ -17,15 +17,16 @@ function SearchForm({searchFor}) {
     }
 
     return (
-        <div>
+        <div className="SearchForm mb-4">
             <form onSubmit = {handleSubmit}>
                 <input
+                    className="form-control form-control-lg flex-grow-1"
                     name="searchTerm"
                     placeholder="Enter search term."
                     value={searchTerm}
                     onChange={handleChange}
                 />
-                <button type="submit">
+                <button type="submit" className="btn btn-lg btn-primary">
                     Submit
                 </button>
             </form>

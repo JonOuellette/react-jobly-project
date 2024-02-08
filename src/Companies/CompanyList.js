@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import SearchForm from "../SearchForm";
 import JoblyApi from "../api/api";
-import CompanyCard from "./CompanyCard";
+import CompanyCard from "./CompanyCard"
 import LoadingSpinner from "../LoadingSpinner";
 
 /** Shows page with the list of companies.  
@@ -25,7 +25,7 @@ function CompanyList(){
     if (!companies) return <LoadingSpinner/>;
 
     return (
-        <div>
+        <div className="CompanyList col-md-8 offset-md-2">>
             <SearchForm searchFor={search}/>
             {companies.length ? (
                 <div>
@@ -40,7 +40,7 @@ function CompanyList(){
                     ))}
                 </div>
             ) : (
-                <p> Sorry, no results were found </p>
+                <p className="lead"> Sorry, no results were found </p>
             )}
 
         </div>

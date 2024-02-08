@@ -1,14 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./CompanyCard.css";
 
 /**Shows a "card" containing company information and is rendered by Company List */
 
 function CompanyCard({name, description, logoUrl, handle}) {
     return (
-        <Link>
-            <div>
-                <h6>{name}
-                {logoUrl}
+        <Link className="CompanyCard card" to={`/companies/${handle}`}>
+            <div className="card-body">
+            <h6 className="card-title">
+                {name}
+                {logoUrl && <img src={logoUrl} alt={name} className="float-right ml-5" />}
                 </h6>
                 <p><small>{description}</small></p>
             </div>
@@ -16,4 +18,4 @@ function CompanyCard({name, description, logoUrl, handle}) {
     )
 }
 
-export default CompanyCard
+export default CompanyCard;

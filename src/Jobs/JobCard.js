@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
-import UserContext from "../auth/UserContext";
+import UserContext from "../Auth/UserContext"
+import "./JobCard.css";
 
 function JobCard({ id, title, salary, equity, companyName }) {
   console.debug("JobCard");
